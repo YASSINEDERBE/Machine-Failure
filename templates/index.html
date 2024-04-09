@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <title>Machine failure Predictor</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
+</head>
+<body class="bg-dark">
+
+    <div class="container">
+        
+            <div class="card mt-50" style="width: 100%; height: 100%">
+                <div class="card-header" style="text-align: center">
+                    <h1>Welcome to Machine Failure Predictor</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" action='/predict'>
+
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter Air_temperature_k</b> </label><br>
+                            <input type="text" class="form-control" id="Air_temperature_k" name="Air_temperature_k"
+                                placeholder="Enter Air_temperature_k " required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter Process_temperature_k</b> </label><br>
+                            <input type="text" class="form-control" id="Process_temperature_k" name="Process_temperature_k"
+                                placeholder="Enter Process_temperature_k " required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter Rotational_speed_rpm</b> </label><br>
+                            <input type="text" class="form-control" id="Rotational_speed_rpm" name="Rotational_speed_rpm"
+                                placeholder="Enter Rotational_speed_rpm " required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter Torque_Nm</b> </label><br>
+                            <input type="text" class="form-control" id="Torque_Nm" name="Torque_Nm"
+                                placeholder="Enter Torque_Nm" required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter Tool_wear_min</b> </label><br>
+                            <input type="text" class="form-control" id="Tool_wear_min" name="Tool_wear_min"
+                                placeholder="Enter Tool_wear_min" required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter TWF</b> </label><br>
+                            <input type="text" class="form-control" id="TWF" name="TWF"
+                                placeholder="Enter TWF" required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter HDF</b> </label><br>
+                            <input type="text" class="form-control" id="HDF" name="HDF"
+                                placeholder="Enter HDF" required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter PWF</b> </label><br>
+                            <input type="text" class="form-control" id="PWF" name="PWF"
+                                placeholder="Enter PWF" required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter OSF</b> </label><br>
+                            <input type="text" class="form-control" id="OSF" name="OSF"
+                                placeholder="Enter OSF" required="1">
+                        </div>
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter RNF</b> </label><br>
+                            <input type="text" class="form-control" id="RNF" name="RNF"
+                                placeholder="Enter RNF" >
+                        </div>
+                        <!-- ... your other HTML code ... -->
+
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <button class="btn btn-primary btn-block btn-large" type="submit">Predict failure</button>
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+                    <h4 style="color:black;" id="prediction_result">{{ prediction_text }}</h4>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                </body>
+                </html>                    
+
+<!-- ... rest of your HTML code ... -->
